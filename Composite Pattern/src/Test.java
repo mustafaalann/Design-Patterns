@@ -41,5 +41,6 @@ public class Test {
 
         root.Display(1);
 
+        System.out.println("Children number of \"Fantasy & Science Fiction\": "+root.find("Fantasy & Science Fiction"));
     }
 }

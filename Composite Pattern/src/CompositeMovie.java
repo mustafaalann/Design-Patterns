@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CompositeMovie implements ComponentMovie{
     private String name;
@@ -31,6 +32,26 @@ public class CompositeMovie implements ComponentMovie{
         for (int i= 0; i< myList.size(); i++) {
             myList.get(i).Display(indent+2);
         }
+    }
+    public int find(String name) {
+        for(ComponentMovie movie : myList){
+            if(movie instanceof CompositeMovie){
+                if(movie.getName().equals(name)){
+                    return movie.getMyList().size();
+                }
+                else {
+                    int returnValue = ((CompositeMovie) movie).find(name);
+                    if (returnValue>0){
+                        return returnValue;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
+    public ArrayList<ComponentMovie> getMyList() {
+        return myList;
     }
 
     @Override

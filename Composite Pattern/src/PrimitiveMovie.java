@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class PrimitiveMovie implements ComponentMovie{
     private String name;
     private String directorName;
@@ -26,7 +28,13 @@ public class PrimitiveMovie implements ComponentMovie{
     }
 
     @Override
+    public ArrayList getMyList() {
+        return null;
+    }
+
+    @Override
     public String getName() {
         return this.name;
     }
+
 }
